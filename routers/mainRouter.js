@@ -3,6 +3,7 @@ const logger=require('../libs/logger')
 const config=require('../config');
 const path=require('path');
 const exec=require('child_process').exec;
+const crypto=require('crypto-js');
 
 const list=config.list||[];
 
@@ -14,8 +15,17 @@ function checkBranchGITEE(ctx,branch) {
     return ctx.request.body&&(ctx.request.body.ref||'').endsWith('/'+branch);
 }
 
+function checkKeyGITHUB(ctx,key){
+    //logger(crypto.HmacSHA1(ctx.request.))
+}
+
+function checkBranchGITHUB(ctx,branch) {
+
+}
+
 const router=new Router();
 router.post(config.path||'/post-receive',async(ctx)=>{
+    console.log(ctx.request.body[Symbol('unparsedBody')]);
     for(let item of list){
         if(checkKeyGITEE(ctx,item.key)){
             //key校验通过，验证分支

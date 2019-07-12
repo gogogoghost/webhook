@@ -1,12 +1,14 @@
 const logger=require('./libs/logger');
 const Koa=require('koa');
-const Body=require('koa-body');
+const body=require('koa-body');
 const config=require('./config');
 const fs=require('fs');
 
 const app=new Koa();
 
-app.use(Body());
+app.use(body({
+    includeUnparsed:true
+}));
 
 try{
     let routesList=fs.readdirSync('routers');
