@@ -13,7 +13,7 @@ try{
         const subRouter=require('./routers/'+item);
         app.use(subRouter);
     }
-    app.listen(8080);
+    app.listen(6666);
     logger.info('服务启动完成');
 }catch (e) {
     logger.error('服务启动失败：'+e);
