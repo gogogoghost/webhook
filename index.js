@@ -1,7 +1,7 @@
 const logger=require('./libs/logger');
 const Koa=require('koa');
 const Body=require('koa-body');
-const config=require('config');
+const config=require('./config');
 const fs=require('fs');
 
 const app=new Koa();
