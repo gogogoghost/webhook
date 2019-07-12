@@ -1,10 +1,10 @@
-## git webhook
+# git webhook
 
 暂只支持码云
 
-### 使用方法
+## 使用方法
 
-需要提前安装node npm
+###需要提前安装node npm
 
 ```bash
 git clone https://github.com/gogogoghost/webhook
@@ -14,7 +14,7 @@ cd webhook
 npm i
 ```
 
-打开config.json，默认配置如下
+###打开config.json，默认配置如下
 
 - key 后台设置的密码
 - branch 需要监控的分支
@@ -40,7 +40,7 @@ npm i
 
 ```
 
-编写脚本：
+###编写脚本：
 ```bash
 cd scripts
 mv sample.sh projectA.sh
@@ -48,13 +48,13 @@ vim projectA.sh
 chmod +x projectA.sh
 ```
 
-临时启动：
+###临时启动：
 
 ```bash
 npm start
 ```
 
-作为服务启动：
+###作为服务启动：
 ```bash
 ./service.sh install/uninstall
 
