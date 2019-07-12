@@ -1,0 +1,10 @@
+[Unit]
+Description="webhook daemon"
+
+[Service]
+Type=forking
+
+PIDFile=/run/webhook.pid
+
+ExecStart=PATH/service.sh start
+ExecStop=PATH/service.sh stop

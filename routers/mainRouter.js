@@ -16,9 +16,9 @@ router.post('/post-receive',async(ctx)=>{
             (async ()=>{
                 exec(path.join(__dirname,'../post-receive.sh'),(err,stdout,stderr)=>{
                     if(err){
-                        logger.error(`任务[time]执行出错：\n${stderr}`);
+                        logger.error(`任务[${time}]执行出错：\n${stderr}`);
                     }else{
-                        logger.info(`任务[time]执行成功：\n${stdout}`);
+                        logger.info(`任务[${time}]执行成功：\n${stdout}`);
                     }
                 })
             })();
