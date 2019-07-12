@@ -35,7 +35,7 @@ npm start
 
 作为服务启动：
 ```bash
-./service.sh install
+./service.sh install/uninstall
 
 sudo systemctl start/stop webhook
 ```
