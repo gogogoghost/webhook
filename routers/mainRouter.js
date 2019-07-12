@@ -4,29 +4,41 @@ const config=require('../config');
 const path=require('path');
 const exec=require('child_process').exec;
 
+const list=config.list||[];
+
+function checkKeyGITEE(ctx,key) {
+    return ctx.request.headers['x-gitee-token']==key;
+}
+
+function checkBranchGITEE(ctx,branch) {
+    return ctx.request.body&&(ctx.request.body.ref||'').endsWith('/'+branch);
+}
+
 const router=new Router();
 router.post('/post-receive',async(ctx)=>{
-    if(ctx.request.headers['x-gitee-token']==config.key){
-        //key校验通过
-        if(ctx.request.body
-            &&(ctx.request.body.ref||'').endsWith('/'+config.branch)){
-            //属于本分支，开始执行
-            const time=new Date().getTime();
-            logger.info(`开始执行WebHook，任务：[${time}]`);
-            (async ()=>{
-                exec(path.join(__dirname,'../post-receive.sh'),(err,stdout,stderr)=>{
-                    if(err){
-                        logger.error(`任务[${time}]执行出错：\n${stderr}`);
-                    }else{
-                        logger.info(`任务[${time}]执行成功：\n${stdout}`);
-                    }
-                })
-            })();
+    for(let item of list){
+        if(checkKeyGITEE(ctx,item.key)){
+            //key校验通过，验证分支
+            if(checkBranchGITEE(ctx,item.branch)){
+                //属于本分支，开始执行
+                const time=new Date().getTime();
+                logger.info(`开始执行WebHook，任务：[${time}]`);
+                (async ()=>{
+                    exec(path.join(__dirname,'../scripts/'+item.script),(err,stdout,stderr)=>{
+                        if(err){
+                            logger.error(`任务[${time}]执行出错：\n${stderr}`);
+                        }else{
+                            logger.info(`任务[${time}]执行成功：\n${stdout}`);
+                        }
+                    })
+                })();
+            }
+            ctx.response.status=200;
+            return;
         }
-        ctx.response.status=200;
-    }else{
-        ctx.response.status=403;
     }
+    ctx.response.status=403;
+
 });
 
 module.exports=router.routes();
