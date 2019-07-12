@@ -15,7 +15,7 @@ function checkBranchGITEE(ctx,branch) {
 }
 
 const router=new Router();
-router.post(config.path,async(ctx)=>{
+router.post(config.path||'/post-receive',async(ctx)=>{
     for(let item of list){
         if(checkKeyGITEE(ctx,item.key)){
             //key校验通过，验证分支

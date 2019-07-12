@@ -14,14 +14,14 @@ cd webhook
 npm i
 ```
 
-打开config.json
+打开config.json，默认配置如下
 
 - key 后台设置的密码
 - branch 需要监控的分支
 - script scripts目录下的脚本文件名
 ---
-- port http端口
-- path post接口的路径
+- port http端口(留空默认6666)
+- path post接口的路径(留空默认/post-receive)
 
 ```json
 {
