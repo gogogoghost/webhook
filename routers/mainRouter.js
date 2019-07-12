@@ -1,15 +1,20 @@
 const Router=require('koa-router');
-
-const key='6cbc2339-f02a-4dbb-9087-b0bcc12ed229';
+const logger=require('../libs/logger')
+const config=require('../config');
 
 const router=new Router();
 router.post('/post-receive',async(ctx)=>{
-    if(ctx.request.headers['x-gitee-token']==key){
+    if(ctx.request.headers['x-gitee-token']==config.key){
+        //key校验通过
+        if(ctx.request.body
+            &&(ctx.request.body.ref|'').endsWith('/'+config.branch)){
+            //属于本分支，开始执行
+            logger.info('开始执行webhook');
+        }
         ctx.response.status=200;
     }else{
         ctx.response.status=403;
     }
-    console.log(ctx.request.headers);
 });
 
 module.exports=router.routes();
