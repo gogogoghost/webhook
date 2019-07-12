@@ -20,8 +20,8 @@ npm i
 - branch 需要监控的分支
 - script scripts目录下的脚本文件名
 ---
-- port http端口(留空默认6666)
-- path post接口的路径(留空默认/post-receive)
+- port http端口(不写默认6666)
+- path post接口的路径(不写默认/post-receive)
 
 ```json
 {
