@@ -10,7 +10,7 @@ cd webhook
 npm i
 ```
 
-打开config.json，将key改为后台设置的密码，branch修改为需要同步的分支：
+打开config.json，将key改为后台设置的密码，branch修改为需要监控的分支：
 
 ```json
 {
