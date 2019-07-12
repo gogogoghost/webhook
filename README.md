@@ -1,6 +1,10 @@
-## gitee专用webhook
+## git webhook
+
+暂只支持码云
 
 ### 使用方法
+
+需要提前安装node npm
 
 ```bash
 git clone https://github.com/gogogoghost/webhook
