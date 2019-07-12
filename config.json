@@ -7,5 +7,7 @@
     "key": "369d87fe-e94a-4105-9c0e-b913cf011d8f",
     "branch": "dev",
     "script": "projectB.sh"
-  }]
+  }],
+  "port":6666,
+  "path": "/post-receive"
 }

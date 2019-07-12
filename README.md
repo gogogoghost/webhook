@@ -15,9 +15,13 @@ npm i
 ```
 
 打开config.json
+
 - key 后台设置的密码
 - branch 需要监控的分支
 - script scripts目录下的脚本文件名
+---
+- port http端口
+- path post接口的路径
 
 ```json
 {
@@ -29,9 +33,19 @@ npm i
     "key": "369d87fe-e94a-4105-9c0e-b913cf011d8f",
     "branch": "dev",
     "script": "projectB.sh"
-  }]
+  }],
+  "port":6666,
+  "path":"/post-receive"
 }
 
+```
+
+编写脚本：
+```bash
+cd scripts
+mv sample.sh projectA.sh
+vim projectA.sh
+chmod +x projectA.sh
 ```
 
 临时启动：
@@ -44,5 +58,5 @@ npm start
 ```bash
 ./service.sh install/uninstall
 
-sudo systemctl start/stop webhook
+sudo systemctl start/stop/restart webhook
 ```
