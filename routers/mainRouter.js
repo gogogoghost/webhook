@@ -16,7 +16,7 @@ function checkBranchGITEE(ctx,branch) {
 }
 
 function checkKeyGITHUB(ctx,key){
-    logger(crypto.HmacSHA1(ctx.request.body[Symbol.for('unparsedBody')],key));
+    logger.info(crypto.HmacSHA1(ctx.request.body[Symbol.for('unparsedBody')],key));
 }
 
 function checkBranchGITHUB(ctx,branch) {
