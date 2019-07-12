@@ -7,7 +7,7 @@ router.post('/post-receive',async(ctx)=>{
     if(ctx.request.headers['x-gitee-token']==config.key){
         //key校验通过
         if(ctx.request.body
-            &&(ctx.request.body.ref|'').endsWith('/'+config.branch)){
+            &&(ctx.request.body.ref||'').endsWith('/'+config.branch)){
             //属于本分支，开始执行
             logger.info('开始执行webhook');
         }
