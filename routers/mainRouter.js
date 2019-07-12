@@ -11,25 +11,29 @@ function checkKeyGITEE(ctx,key) {
     return ctx.request.headers['x-gitee-token']==key;
 }
 
-function checkBranchGITEE(ctx,branch) {
+function checkBranch(ctx,branch) {
     return ctx.request.body&&(ctx.request.body.ref||'').endsWith('/'+branch);
 }
 
 function checkKeyGITHUB(ctx,key){
-    logger.info(crypto.HmacSHA1(ctx.request.body[Symbol.for('unparsedBody')],key));
-}
-
-function checkBranchGITHUB(ctx,branch) {
-
+    const sign='sha1='+crypto.HmacSHA1(ctx.request.body[Symbol.for('unparsedBody')],key);
+    return ctx.request.headers['x-hub-signature']==sign;
 }
 
 const router=new Router();
 router.post(config.path||'/post-receive',async(ctx)=>{
-    checkKeyGITHUB(ctx,'12345678');
     for(let item of list){
-        if(checkKeyGITEE(ctx,item.key)){
+        let func;
+        if(item.site=='github'){
+            func=checkKeyGITHUB;
+        }else if(item.site=='gitee'){
+            func=checkKeyGITEE;
+        }else{
+            continue;
+        }
+        if(func(ctx,item.key)){
             //key校验通过，验证分支
-            if(checkBranchGITEE(ctx,item.branch)){
+            if(checkBranch(ctx,item.branch)){
                 //属于本分支，开始执行
                 const time=new Date().getTime();
                 logger.info(`开始执行WebHook，任务：[${time}]`);
