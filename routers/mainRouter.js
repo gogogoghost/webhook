@@ -25,7 +25,7 @@ function checkBranchGITHUB(ctx,branch) {
 
 const router=new Router();
 router.post(config.path||'/post-receive',async(ctx)=>{
-    console.log(ctx.request.body[Symbol('unparsedBody')]);
+    console.log(ctx.request.body[Symbol.for('unparsedBody')]);
     for(let item of list){
         if(checkKeyGITEE(ctx,item.key)){
             //key校验通过，验证分支
