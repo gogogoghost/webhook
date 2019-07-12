@@ -12,14 +12,16 @@ router.post('/post-receive',async(ctx)=>{
             &&(ctx.request.body.ref||'').endsWith('/'+config.branch)){
             //属于本分支，开始执行
             const time=new Date().getTime();
-            logger.info('开始执行WebHook，任务：'+time);
-            exec(path.join(__dirname,'../post-receive.sh'),(err,stdout,stderr)=>{
-                if(err){
-                    logger.error('任务'+time+'执行出错：\n'+stderr);
-                }else{
-                    logger.info('任务'+time+'执行结束：\n'+stdout);
-                }
-            })
+            logger.info(`开始执行WebHook，任务：[${time}]`);
+            (async ()=>{
+                exec(path.join(__dirname,'../post-receive.sh'),(err,stdout,stderr)=>{
+                    if(err){
+                        logger.error(`任务[time]执行出错：\n${stderr}`);
+                    }else{
+                        logger.info(`任务[time]执行成功：\n${stdout}`);
+                    }
+                })
+            })();
         }
         ctx.response.status=200;
     }else{
