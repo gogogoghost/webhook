@@ -1,6 +1,6 @@
 # git webhook
 
-暂只支持码云
+支持gitee和github
 
 ## 使用方法
 
@@ -19,6 +19,7 @@ npm i
 - key 后台设置的密码
 - branch 需要监控的分支
 - script scripts目录下的脚本文件名
+- site gitee/github，不写则该条无效
 ---
 - port http端口(不写默认6666)
 - path post接口的路径(不写默认/post-receive)
@@ -28,14 +29,16 @@ npm i
   "list": [{
     "key": "6cbc2339-f02a-4dbb-9087-b0bcc12ed229",
     "branch": "master",
-    "script": "projectA.sh"
+    "script": "projectA.sh",
+    "site": "github"
   },{
     "key": "369d87fe-e94a-4105-9c0e-b913cf011d8f",
     "branch": "dev",
-    "script": "projectB.sh"
+    "script": "projectB.sh",
+    "site": "gitee"
   }],
   "port":6666,
-  "path":"/post-receive"
+  "path": "/post-receive"
 }
 
 ```
