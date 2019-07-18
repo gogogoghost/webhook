@@ -23,7 +23,7 @@ then
 elif [ "$1" = "start" ]
 then
   cd $originFolder
-  nohup sh -c "npm start" > /dev/null & echo $! > $pidFile
+  nohup sh -c "npm start" > webhook.log & echo $! > $pidFile
 elif [ "$1" = "stop" ]
 then
   kill -9 $(cat $pidFile)

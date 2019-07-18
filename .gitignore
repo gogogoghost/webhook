@@ -81,3 +81,5 @@ typings/
 
 
 .idea/
+
+webhook.log
