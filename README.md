@@ -1,6 +1,10 @@
-# git webhook
-
-支持gitee和github
+# git webhook ![node](https://img.shields.io/badge/node-v7.6.0-brightgreen) ![npm](https://img.shields.io/badge/npm-v2.0-blue)  
+![gitee](https://img.shields.io/badge/gitee-support-red)   ![github](https://img.shields.io/badge/github-support-lightgrey)  ![gitbucket](https://img.shields.io/badge/gitbucket-support-blue) 
+ 
+支持:
++ gitee
++ github
++ gitbucket
 
 ## 使用方法
 
@@ -19,7 +23,7 @@ npm i
 - key 后台设置的密码
 - branch 需要监控的分支
 - script scripts目录下的脚本文件名
-- site gitee/github，不写则该条无效
+- site gitee/github/gitbucket，不写则该条无效
 ---
 - port http端口(不写默认6666)
 - path post接口的路径(不写默认/post-receive)
@@ -58,8 +62,18 @@ npm start
 ```
 
 ### 作为服务启动：
+Linux 
+进入根目录下的`service/Linux`执行以下
 ```bash
 ./service.sh install/uninstall
 
 sudo systemctl start/stop/restart webhook
 ```
+window
+进入根目录下的`service/Win`执行以下
+```bash
+
+```
+
+### 日志
+存放在根目录下的`logs`下
