@@ -4,6 +4,16 @@
     "branch": "master",
     "script": "sample.sh",
     "site": "gitbucket"
+  },{
+    "key": "369d87fe-e94a-4105-9c0e-b913cf011d8f",
+    "branch": "dev",
+    "script": "projectB.sh",
+    "site": "gitee"
+  },{
+    "key": "1d974ebc-b8d2-4cab-a32a-c9241281332d",
+    "branch": "dev",
+    "script": "projectC.sh",
+    "site": "github"
   }],
   "port":6666,
   "path": "/post-receive"
