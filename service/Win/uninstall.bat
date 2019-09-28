@@ -1,4 +1,3 @@
-#!/bin/sh
 # 卸载服务
 
 node ./service.js uninstall
