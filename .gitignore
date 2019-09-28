@@ -83,3 +83,5 @@ typings/
 .idea/
 
 webhook.log
+
+daemon/
