@@ -2,7 +2,7 @@
   "list": [{
     "key": "6cbc2339-f02a-4dbb-9087-b0bcc12ed229",
     "branch": "master",
-    "script": "sample.sh",
+    "script": "sample.bat",
     "site": "gitbucket"
   },{
     "key": "369d87fe-e94a-4105-9c0e-b913cf011d8f",

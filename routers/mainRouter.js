@@ -44,9 +44,9 @@ router.post(config.path || '/post-receive', async (ctx) => {
                 (async () => {
                     exec(path.join(__dirname, '../scripts/' + item.script), (err, stdout, stderr) => {
                         if (err) {
-                            logger.error(`任务[${time}]执行出错：\n${stderr}`);
+                            logger.error(`任务[${time}]执行出错：${stderr}`);
                         } else {
-                            logger.info(`任务[${time}]执行成功：\n${stdout}`);
+                            logger.info(`任务[${time}]执行成功：${stdout}`);
                         }
                     });
                 })();
