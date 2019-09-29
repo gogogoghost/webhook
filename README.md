@@ -53,12 +53,21 @@ npm i
 ```
 
 ### 编写脚本：
+
+Linux
+
 ```bash
 cd scripts
 mv sample.sh projectA.sh
 vim projectA.sh
 chmod +x projectA.sh
 ```
+
+window
+
+在`scripts`目录下新增个bat脚本文件
+
+
 
 ### 临时启动：
 
@@ -76,6 +85,7 @@ sudo systemctl start/stop/restart webhook
 ```
 window
 进入根目录下的`service/Win`执行以下
+
 ```bash
 #安装服务(双击运行)
 ./install.bat
