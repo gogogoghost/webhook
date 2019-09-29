@@ -40,6 +40,11 @@ npm i
     "branch": "dev",
     "script": "projectB.sh",
     "site": "gitee"
+  },{
+    "key": "764daf6f-497b-46ff-b734-49ad37d88517",
+    "branch": "dev",
+    "script": "projectC.sh",
+    "site": "gitbucket"
   }],
   "port":6666,
   "path": "/post-receive"
