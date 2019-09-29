@@ -1,4 +1,3 @@
-#!/bin/sh
 # 安装服务
 
 echo 'Installation dependence.'

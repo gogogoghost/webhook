@@ -1,6 +1,6 @@
 # git webhook ![node](https://img.shields.io/badge/node-v7.6.0-brightgreen) ![npm](https://img.shields.io/badge/npm-v2.0-blue)  
 ![gitee](https://img.shields.io/badge/gitee-support-red)   ![github](https://img.shields.io/badge/github-support-green)  ![gitbucket](https://img.shields.io/badge/gitbucket-support-blue) 
- 
+
 支持:
 + gitee
 + github
@@ -73,10 +73,10 @@ window
 进入根目录下的`service/Win`执行以下
 ```bash
 #安装服务(双击运行)
-./install.sh
+./install.bat
 
 #卸载服务(双击运行)
-./uninstall.sh
+./uninstall.bat
 ```
 
 ### 日志
