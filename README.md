@@ -1,4 +1,4 @@
-# git webhook ![node](https://img.shields.io/badge/node-v7.6.0-brightgreen) ![npm](https://img.shields.io/badge/npm-v2.0-blue)  
+# git webhook
 ![gitee](https://img.shields.io/badge/gitee-support-red)   ![github](https://img.shields.io/badge/github-support-green)  ![gitbucket](https://img.shields.io/badge/gitbucket-support-blue) 
 
 支持:
@@ -23,7 +23,7 @@ npm i
 - key 后台设置的密码
 - branch 需要监控的分支
 - script scripts目录下的脚本文件名
-- site gitee/github/gitbucket，不写则该条无效
+- site gitee/github/gitbucket，不写则该条配置无效
 ---
 - port http端口(不写默认6666)
 - path post接口的路径(不写默认/post-receive)
@@ -54,7 +54,7 @@ npm i
 
 ### 编写脚本：
 
-Linux
+- Linux
 
 ```bash
 cd scripts
@@ -63,11 +63,9 @@ vim projectA.sh
 chmod +x projectA.sh
 ```
 
-window
+- window
 
 在`scripts`目录下新增个bat脚本文件
-
-
 
 ### 临时启动：
 
@@ -76,23 +74,20 @@ npm start
 ```
 
 ### 作为服务启动：
-Linux 
-进入根目录下的`service/Linux`执行以下
+
+- Linux 
+
 ```bash
+cd service/Linux
+
 ./service.sh install/uninstall
 
-sudo systemctl start/stop/restart webhook
+sudo systemctl start/stop webhook
 ```
-window
-进入根目录下的`service/Win`执行以下
+- window
 
-```bash
-#安装服务(双击运行)
-./install.bat
-
-#卸载服务(双击运行)
-./uninstall.bat
-```
+  进入`service/Win`目录，install.bat与uninstall.bat即为安装卸载脚本
 
 ### 日志
+
 存放在根目录下的`logs`下
